@@ -1,0 +1,13 @@
+.product-card {
+  width: 50%;
+}
+
+.card-img-top {
+  width: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+  .product-card {
+    width: 90%;
+  }
+}

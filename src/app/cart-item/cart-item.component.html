@@ -1,0 +1,36 @@
+<div class="card shadow flex-row m-auto product-card">
+  <div class="text-center">
+    <img
+      [src]="product?.IMG_URL"
+      class="card-img-top product-img p-3"
+      alt="product-img"
+    />
+  </div>
+  <div class="card-body product-text row">
+    <div class="">
+      <h5 class="card-title">
+        {{
+          product?.DESCRIPTION?.length > 25
+            ? product?.DESCRIPTION.substring(0, 25).concat(" ...")
+            : product?.DESCRIPTION
+        }}
+      </h5>
+    </div>
+    <h6 class="card-title">{{ product?.CATEGORY_NAME }}</h6>
+    <p>QTY: {{product?.QTY}}</p>
+    <h6 class="d-flex">
+      <span>Rs. {{ (+product?.MRP * product?.QTY) }}</span
+      ><span
+        style="
+          text-decoration-line: line-through;
+          color: #a6a2a2;
+          padding-left: 12px;
+        "
+        >Rs. {{ (+product?.RATE * product?.QTY) }}</span
+      >
+    </h6>
+    <button class="btn btn-primary" (click)="removeProduct()">
+      Remove Item
+    </button>
+  </div>
+</div>

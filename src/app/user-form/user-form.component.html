@@ -1,0 +1,228 @@
+<div class="container">
+  <div class="row">
+    <form
+      class="row g-3"
+      [formGroup]="detailsReactiveForm"
+      (ngSubmit)="addDetails()"
+    >
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          placeholder="Fist Name"
+          formControlName="firstname"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('firstname')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">First Name is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          placeholder="Last Name"
+          formControlName="lastname"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('lastname')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Last Name is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="Enter your Email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('email')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Email is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Enter Mobile Number"
+          formControlName="mobilenumber"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('mobilenumber')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Mobile Number is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="number"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Enter your Age"
+          formControlName="age"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('age')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Age is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="select your date of birth"
+          formControlName="dob"
+          onfocus="(this.type = 'date')"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('dob')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Date of birth is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress"
+          placeholder="Address 1"
+          formControlName="address1"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('address1')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Address is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress2"
+          placeholder="Address 2"
+          formControlName="address2"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('address2')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Address is Required</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          id="inputCity"
+          placeholder="City"
+          formControlName="city"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('city')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">City is Required</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <select id="inputState" class="form-select" formControlName="state">
+          <option disabled selected value="">Choose State</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="M.P">M.P</option>
+          <option value="U.P">U.P</option>
+          <option value="J&K">J&K</option>
+          <option value="Delhi">Delhi</option>
+        </select>
+        <div
+          *ngIf="
+            detailsReactiveForm.get('state')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">State is Required</span>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputZip"
+          placeholder="Zip"
+          formControlName="zip"
+        />
+        <div
+          *ngIf="
+            detailsReactiveForm.get('zip')?.hasError('required') &&
+            !detailsReactiveForm.pristine
+          "
+        >
+          <span class="text-danger">Zip code is Required</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="gridCheck"
+            formControlName="check"
+          />
+          <label class="form-check-label" for="gridCheck"> Check me out </label>
+          <div
+            *ngIf="
+              detailsReactiveForm.get('check')?.hasError('required') &&
+              !detailsReactiveForm.pristine
+            "
+          >
+            <span class="text-danger">Please check the box</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button
+          type="submit"
+          class="btn btn-success me-3"
+          [disabled]="detailsReactiveForm.invalid"
+        >
+          Submit
+        </button>
+        <button type="reset" class="btn btn-primary">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

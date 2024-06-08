@@ -1,0 +1,9 @@
+.product-price{
+    width: 50%;
+}
+
+@media screen and (max-width:768px) {
+    .product-price{
+        width: 90%;
+    }
+}

@@ -1,0 +1,38 @@
+<div class="card shadow product-card">
+  <div class="text-center">
+    <img [src]="product?.IMG_URL" class="product-img pt-2" alt="..." />
+  </div>
+  <div class="card-body product-text">
+    <div class="text-center">
+      <h5 class="card-title">
+        {{
+          product?.PRODUCT?.length > 25
+            ? product?.PRODUCT.substring(0, 25).concat(" ...")
+            : product?.PRODUCT
+        }}
+      </h5>
+    </div>
+    <h6 class="card-title">{{ product?.CATEGORY_NAME }}</h6>
+    <p class="card-text">
+      {{
+        product?.DESCRIPTION?.length > 105
+          ? product?.DESCRIPTION.substring(0, 105).concat(" ...more")
+          : product?.DESCRIPTION
+      }}
+    </p>
+    <h6 class="d-flex">
+      <span>Rs. {{ product?.MRP }}</span
+      ><span
+        style="
+          text-decoration-line: line-through;
+          color: #a6a2a2;
+          padding-left: 12px;
+        "
+        >Rs. {{ product?.RATE }}</span
+      >
+    </h6>
+    <button class="btn btn-primary" (click)="addProduct(product)">
+      Add to cart
+    </button>
+  </div>
+</div>

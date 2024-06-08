@@ -1,0 +1,23 @@
+<div class="d-flex flex-column row-gap-5 pt-3">
+  <div class="text-center fw-bold h4" *ngIf="!selectedProduct?.length">
+    Please Select a Product
+  </div>
+  <app-cart-item *ngFor="let product of selectedProduct" [product]="product" (emitAction)="updateCartDetails()"></app-cart-item>
+
+  <div class="row product-price m-auto">
+    <h5>Price Details</h5>
+    <h6 class="d-flex">
+      <span>Total Price: Rs {{totalPrice | number}}</span>
+      <span
+        style="
+          text-decoration-line: line-through;
+          color: #a6a2a2;
+          padding-left: 12px;
+        "
+        >Rs {{ discountedPrice | number }}</span
+      >
+    </h6>
+    <button role="button" [disabled]="selectedProduct.length ? false : true" class="btn btn-primary mb-3" [routerLink]="'/user'">PLACE ORDER</button>
+    <button role="button" [disabled]="selectedProduct.length ? false : true" class="btn btn-primary" (click)="clearCart()">CLEAR CART</button>
+  </div>
+</div>
